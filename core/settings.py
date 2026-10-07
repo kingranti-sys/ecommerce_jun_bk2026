@@ -109,7 +109,7 @@ DATABASES = {
 }
 
 
-''''''
+'''
 if config("DATABASE_URL", default=None):
     DATABASES = {
         "default": dj_database_url.parse(
@@ -129,7 +129,7 @@ else:
             'PORT': config("DB_PORT"),
         }
     }
-''''''
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
