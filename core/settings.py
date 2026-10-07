@@ -17,12 +17,15 @@ from datetime import timedelta
 import dj_database_url
 import cloudinary
 from dotenv import load_dotenv
+import resend
 
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+RESEND_API_KEY = config("RESEND_API_KEY")
+resend.api_key = RESEND_API_KEY
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
@@ -211,14 +214,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 #     },
 # }
 
-
+'''
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = "smtp.resend.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = "onboarding@resend.dev"
+'''
 
 '''
 CLOUDINARY_STORAGE = {
