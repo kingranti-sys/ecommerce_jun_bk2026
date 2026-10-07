@@ -106,7 +106,7 @@ DATABASES = {
 }
 
 
-'''''
+''''''
 if config("DATABASE_URL", default=None):
     DATABASES = {
         "default": dj_database_url.parse(
@@ -126,7 +126,7 @@ else:
             'PORT': config("DB_PORT"),
         }
     }
-'''''
+''''''
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
@@ -179,6 +179,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT =BASE_DIR / "staticfiles"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
