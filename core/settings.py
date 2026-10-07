@@ -83,6 +83,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.15173",
+    "https://shopnow-main.vercel.app"
 ]
 
 ROOT_URLCONF = 'core.urls'
