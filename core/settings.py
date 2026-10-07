@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 from datetime import timedelta
 import dj_database_url
 
@@ -96,6 +97,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+
+
+DATABASES = {
+    "default": dj_database_url.parse(
+        os.getenv("DATABASE_URL")
+    )
+}
+
+
+'''''
 if config("DATABASE_URL", default=None):
     DATABASES = {
         "default": dj_database_url.parse(
@@ -115,7 +126,7 @@ else:
             'PORT': config("DB_PORT"),
         }
     }
-
+'''''
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
