@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://ecommercejunbk2026-production-bc40.up.railway.app",
+    "https://ecommercejunbk2026-production-bc40.up.railway.app"
 ]
 
 # Application definition
