@@ -39,6 +39,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://ecommercejunbk2026-production-bc40.up.railway.app"
 ]
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
+
 # Application definition
 
 INSTALLED_APPS = [
