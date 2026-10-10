@@ -4,9 +4,9 @@ from datetime import timedelta
 import secrets
 
 from django.contrib.auth import authenticate
-from django.utils import timezone
-from django.template.loader import render_to_string
-from django.core.mail import EmailMultiAlternatives
+# from django.utils import timezone
+# from django.template.loader import render_to_string
+# from django.core.mail import EmailMultiAlternatives
 # import resend
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -31,9 +31,10 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data["password"],
             first_name=validated_data["first_name"],
             last_name=validated_data["last_name"],
-            is_active = False
+            is_active=True,
         )    
 
+        '''
         otp = str(secrets.randbelow(900000) + 100000)
 
         EmailVerification.objects.create(
@@ -49,14 +50,14 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "user": user,
             }
         )
-
+        '''
         # resend.Emails.send({
         #     "from": settings.DEFAULT_FROM_EMAIL,
         #     "to": [user.email],
         #     "subject": "verify your email",
         #     "html": html_message,
         # })
-
+        '''
         email = EmailMultiAlternatives(
            subject="verify your email",
             body="",
@@ -67,7 +68,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         email.attach_alternative(html_message, "text/html")
 
         email.send(fail_silently=False)
-
+        '''
         return user
 
 
