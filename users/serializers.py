@@ -1,7 +1,7 @@
 from django.conf import settings
 
-from datetime import timedelta
-import secrets
+# from datetime import timedelta
+# import secrets
 
 from django.contrib.auth import authenticate
 # from django.utils import timezone
